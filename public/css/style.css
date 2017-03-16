@@ -5,9 +5,10 @@ body {
 }
 
 .header_chatroom {
-    background-color: #181818;
+    background-color: #984B43;
     color: #fff;
-    padding-right: 10px;
+    margin-right:1px;
+    margin-left:1px;
 }
 
 #create_room {
@@ -27,6 +28,7 @@ body {
     height: 500px;
     padding: 10px;
     overflow-y: scroll;
+    background-color:#EAC67A; 
 }
 
 .chat_list_header {
@@ -38,10 +40,6 @@ body {
 .system_message > #message_text {
     color: red;
     font-weight: bold;
-}
-
-.user_message > #message_text {
-    color: blue;
 }
 
 #user_name {
