@@ -4,7 +4,7 @@
   "description": "Chat Room using socket.io",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.js"
+    "start": "node_modules/.bin/babel-node src/server.js"
   },
   "author": "anurag krishna",
   "license": "ISC",
