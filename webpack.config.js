@@ -15,6 +15,11 @@ module.exports = {
 		publicPath: "/"
 	},
 
+	node:{
+		fs:"empty",
+		tls:"empty"
+	},
+
 	module:{
 		loaders:[
 			{
@@ -25,11 +30,46 @@ module.exports = {
 					presets:["react","es2015","stage-2"]
 				}
 			},
+
+			{
+				test:/\.css$/,
+				loader:"style-loader!css-loader"
+			},
+
+			{
+				test:/\.(png|jpg)$/,
+				loader:"url-loader",
+				query: {
+    				limit: 8192,
+    				name: 'images/[name].[ext]'
+					}
+			}
 		]
 	},
-	node:{
-		fs:"empty",
-		tls:"empty"
-	}
 
+	plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: {
+        warnings: false,
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true
+      },
+      output: {
+        comments: false,
+      },
+      exclude: [/\.min\.js$/gi]
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+  ],
 };

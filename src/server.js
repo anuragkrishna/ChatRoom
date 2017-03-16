@@ -24,9 +24,7 @@ app.get('/', (req, res, err) => {
 });
 
 
-server.listen(9000, err => {
-    console.log("Server listening on 9000");
-});
+server.listen(process.env.PORT || 8081);
 
 const io = require('socket.io').listen(server);
 
