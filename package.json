@@ -8,7 +8,7 @@
   },
   "author": "anurag krishna",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.0",
