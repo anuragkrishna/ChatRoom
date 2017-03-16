@@ -3,7 +3,7 @@ import ChatList from './ChatList';
 import ChatForm from './ChatForm';
 import ChatRoomHeader from './ChatRoomHeader';
 const io = require('socket.io-client');
-const socket = io.connect("http://localhost:9000");
+const socket = io();
 
 class ChatRoomPage extends React.Component {
 

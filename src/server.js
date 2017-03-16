@@ -5,7 +5,6 @@ import express from 'express';
 import http from 'http';
 import { renderToString } from 'react-dom/server';
 import path from 'path';
-import ChatRoomPage from './component/ChatRoomPage';
 
 
 let app = express();
@@ -13,14 +12,8 @@ var server = require('http').createServer(app);
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-const comp = <div>
-                <ChatRoomPage />
-                <script type="text/javascript" src="./bundle.js"></script>  
-            </div>;
-
-app.get('/', (req, res, err) => {
-    let markup = renderToString(comp);
-    res.send(markup);
+app.get('*', (req, res, err) => {
+    res.sendFile(path.join( __dirname, '../public/index.html'));;
 });
 
 
